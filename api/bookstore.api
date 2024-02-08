@@ -1,0 +1,34 @@
+//info(
+//    title: // TODO: add title
+//    desc: // TODO: add description
+//    author: "Blizzard"
+//    email: "parezhang@126.com"
+//)
+type (
+	addReq {
+		book  string `json:"name"`
+		price int64  `form:"price"`
+	}
+	addResp {
+		ok bool `json:"ok"`
+	}
+)
+
+type (
+	checkReq {
+		book string `form:"book"`
+	}
+	checkResp {
+		found bool  `json:"found"`
+		price int64 `json:"price"`
+	}
+)
+
+service bookstore-api { //定义service名字
+	@handler AddHandler // TODO: set handler name and delete this comment 定义服务端handle名字
+	get /add (addReq) returns (addResp) //定义了get方法的路由、请求参数、返回参数等
+
+	@handler CheckHandler // TODO: set handler name and delete this comment
+	get /check (checkReq) returns (checkResp)
+}
+

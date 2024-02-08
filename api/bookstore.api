@@ -6,7 +6,7 @@
 //)
 type (
 	addReq {
-		book  string `json:"name"`
+		book  string `form:"book"`
 		price int64  `form:"price"`
 	}
 	addResp {
@@ -25,10 +25,10 @@ type (
 )
 
 service bookstore-api { //定义service名字
-	@handler AddHandler // TODO: set handler name and delete this comment 定义服务端handle名字
+	@handler AddHandler // 定义服务端handle名字
 	get /add (addReq) returns (addResp) //定义了get方法的路由、请求参数、返回参数等
 
-	@handler CheckHandler // TODO: set handler name and delete this comment
+	@handler CheckHandler
 	get /check (checkReq) returns (checkResp)
 }
 

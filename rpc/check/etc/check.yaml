@@ -4,3 +4,12 @@ Etcd:
   Hosts:
   - 159.75.183.42:2379
   Key: check.rpc
+
+DataSource: root:root@tcp(159.75.183.42:23306)/book_store?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+# mysql链接地址，满足 $user:$password@tcp($ip:$port)/$db?$queries 格式即可
+Table: book
+Cache:
+  - Host: 159.75.183.42:26379
+
+Log:
+  Level: error
